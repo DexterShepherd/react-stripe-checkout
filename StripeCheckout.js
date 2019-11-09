@@ -250,8 +250,8 @@ export default class ReactStripeCheckout extends React.Component {
     document.body.appendChild(script);
   }
 
-  componentDidUpdate() {
-    if (!scriptLoading) {
+  componentDidUpdate(prevProps) {
+    if (!scriptLoading && (propProps.stripeKey !== props.stripeKey)) {
       this.updateStripeHandler();
     }
   }
